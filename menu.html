@@ -21,9 +21,10 @@
             font-size: 24px;
             font-weight: bold;
         }
-        .dropdown {
-            position: relative;
-            display: inline-block;
+        .navbar .dropdown {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
         }
         .dropbtn {
             background-color: #a45ee5;
@@ -97,7 +98,7 @@
             color: white;
         }
         .back-button {
-            background-color: #ff18f3;
+            background-color: #fc19f0;
             color: white;
             padding: 10px 15px;
             font-size: 16px;
@@ -107,27 +108,41 @@
             text-decoration: none;
         }
         .back-button:hover {
-            background-color: #9d04cc;
+            background-color: #f80c8e;
         }
-        @media (max-width: 480px) {
+    
+        /* 📱 Diseño Adaptable para Teléfonos */
+        @media (max-width: 768px) {
             .navbar {
-                font-size: 18px;
-                padding: 10px;
-                flex-direction: column;
+                display: flex;
+                flex-direction: row;
                 align-items: center;
-            }
-            .dropdown {
-                margin-top: 10px;
+                justify-content: space-between;
+                padding: 10px;
+                font-size: 20px;
             }
             .dropbtn {
                 font-size: 16px;
+                padding: 8px 15px;
             }
             .back-button {
                 font-size: 14px;
                 padding: 8px 12px;
             }
+            .menu-item {
+                width: 100%;
+                padding: 10px;
+            }
+            .menu-item img {
+                width: 40px;
+                height: 40px;
+            }
+            .menu-item .name, .menu-item .price {
+                font-size: 16px;
+            }
         }
     </style>
+    
 </head>
 <body>
     <div class="navbar">
@@ -170,3 +185,6 @@
     </div>
 </body>
 </html>
+
+
+
