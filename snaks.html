@@ -25,6 +25,7 @@
             flex-grow: 1;
             display: flex;
             justify-content: center;
+            position: relative;
         }
         .dropbtn {
             background-color: #a45ee5;
@@ -53,7 +54,7 @@
         .dropdown-content a:hover {
             background-color: #3a3a3a;
         }
-        .dropdown:hover .dropdown-content {
+        .dropdown-content.show {
             display: block;
         }
         .menu-container {
@@ -110,8 +111,6 @@
         .back-button:hover {
             background-color: #f80c8e;
         }
-    
-        /* 📱 Diseño Adaptable para Teléfonos */
         @media (max-width: 768px) {
             .navbar {
                 display: flex;
@@ -147,9 +146,9 @@
     <div class="navbar">
         <span>Restaurante Lokus</span>
         <div class="dropdown">
-            <button class="dropbtn">Snacks</button>
-            <div class="dropdown-content">
-                <a href="menu.html">Incio</a>
+            <button class="dropbtn" onclick="toggleDropdown()">Snacks</button>
+            <div id="dropdownMenu" class="dropdown-content">
+                <a href="menu.html">Inicio</a>
                 <a href="Bebidas.html">Bebidas</a>
             </div>
         </div>
@@ -158,13 +157,30 @@
     
     <div class="menu-container" id="menuContainer">
         <a href="des6.html" class="menu-item">
-            <img src="s1.jpg" alt="Cafe">
-            <span class="name">papas a la francesa</span>
+            <img src="s1.jpg" alt="Papas a la francesa">
+            <span class="name">Papas a la francesa</span>
             <span class="price">$50.00</span>
             <i class="fas fa-chevron-right icon"></i>
         </a>
-
-
     </div>
+
+    <script>
+        function toggleDropdown() {
+            document.getElementById("dropdownMenu").classList.toggle("show");
+        }
+
+        // Cerrar el menú si se hace clic fuera
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                let dropdowns = document.getElementsByClassName("dropdown-content");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    let openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
 </body>
 </html>

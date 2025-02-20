@@ -22,7 +22,7 @@
             font-weight: bold;
         }
         .navbar .dropdown {
-            flex-grow: 1;
+            position: relative;
             display: flex;
             justify-content: center;
         }
@@ -53,7 +53,7 @@
         .dropdown-content a:hover {
             background-color: #3a3a3a;
         }
-        .dropdown:hover .dropdown-content {
+        .show {
             display: block;
         }
         .menu-container {
@@ -110,7 +110,7 @@
         .back-button:hover {
             background-color: #f80c8e;
         }
-    
+
         /* 📱 Diseño Adaptable para Teléfonos */
         @media (max-width: 768px) {
             .navbar {
@@ -147,9 +147,9 @@
     <div class="navbar">
         <span>Restaurante Lokus</span>
         <div class="dropdown">
-            <button class="dropbtn">Bebidas</button>
-            <div class="dropdown-content">
-                <a href="menu.html">Incio</a>
+            <button class="dropbtn" onclick="toggleDropdown()">Bebidas</button>
+            <div class="dropdown-content" id="dropdownMenu">
+                <a href="menu.html">Inicio</a>
                 <a href="snaks.html">Snacks</a>
             </div>
         </div>
@@ -165,11 +165,27 @@
         </a>
         <a href="des5.html" class="menu-item">
             <img src="v1.jpeg" alt="Churros">
-            <span class="name">soda italina</span>
+            <span class="name">Soda Italiana</span>
             <span class="price">$34.00</span>
             <i class="fas fa-chevron-right icon"></i>
         </a>
-
     </div>
+
+    <script>
+        function toggleDropdown() {
+            document.getElementById("dropdownMenu").classList.toggle("show");
+        }
+
+        // Cerrar el menú al hacer clic fuera
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdown = document.getElementById("dropdownMenu");
+                if (dropdown.classList.contains('show')) {
+                    dropdown.classList.remove('show');
+                }
+            }
+        }
+    </script>
+
 </body>
 </html>
