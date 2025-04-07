@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descripción del Producto</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: white;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(to right, #5a0e99, #a45ee5);
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .back-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .product-image {
+            width: 80%;
+            max-width: 300px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .description {
+            max-width: 80%;
+            font-size: 18px;
+            line-height: 1.5;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+            animation: slideUp 1s ease-in-out;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .back-menu {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(to right, #5a0e99, #a45ee5);
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .back-menu:hover {
+            background: linear-gradient(to right, #a45ee5, #5a0e99);
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <button class="back-button" onclick="history.back()"><i class="fas fa-arrow-left"></i></button>
+        <span id="product-title">Baguette</span>
+        <span></span>
+    </div>
+    <div class="container">
+        <img src="p5.jpeg" alt="Producto" class="product-image" id="product-image">
+        <p class="description" id="product-description">pan con queso y jamon</p>
+        <button class="back-menu" onclick="window.location.href='snaks.html'">Regresar al Menú</button>
+    </div>
+</body>
+</html>
+
+
